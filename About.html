@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - Our Company</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            background-color: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Information */
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 48%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Feature and Goal Sections */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-item i {
+            font-size: 2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-info, .features-grid {
+                flex-direction: column;
+            }
+
+            .contact-card, .feature-item {
+                width: 100%;
+            }
+        }
+
+        /* Additional Styling */
+        .cta-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="container">
+            <h1>About Our Company</h1>
+            <p>
+                This project was born out of a desire to combine the ancient wisdom of yoga with the power of modern technology.
+                Our dedicated team of developers and fitness enthusiasts has worked tirelessly to bring this vision to life.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="container">
+        <div class="section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Email Address</h3>
+                    <p>shivangirai9415@gamil.com</p>
+                    <p>kratika@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Phone Numbers</h3>
+                    <p>+91 8318741412 (Main)</p>
+                    <p>+91 9628440062 (Support)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Vision Section -->
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p>
+                Our mission is to revolutionize the way people practice yoga by integrating
+                advanced AI technology to provide real-time detection and set counter leads to boost in confidence in their yoga journey
+            </p>
+            
+        </div>
+
+        <!-- Core Features -->
+        <div class="section">
+            <h2>Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i>🚀</i>
+                    <h3>Artificial Intelligence</h3>
+                    <p>Cutting-edge solutions using the latest technological advancements.</p>
+                </div>
+                <div class="feature-item">
+                    <i>💡</i>
+                    <h3>Creative Problem Solving</h3>
+                    <p>Unique approaches to addressing real world performance.</p>
+                </div>
+                <div class="feature-item">
+                    <i>🤝</i>
+                    <h3>Customer Collaboration</h3>
+                    <p>Working closely with clients to understand and meet their specific needs.</p>
+                </div>
+                <div class="feature-item">
+                    <i>🌍</i>
+                    <h3>Global Perspective</h3>
+                    <p>Solutions designed with a worldwide and inclusive approach.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Audience -->
+        <div class="section">
+            <h2>Target Audience</h2>
+            <p>
+                Our system is designed for yoga enthusiasts 
+                for beginners looking to learn the basics  of T-pose , Tree Pose and Warrior II pose.
+            </p>
+            
+        </div>
+
+        <!-- Future Goals -->
+        <div class="section">
+            <h2>Future Goals</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Include More Poses</h3>
+                    <p>We plan to expand our system to include more yoga poses.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Advanced application</h3>
+                    <p>create a mobile app for greater accessibility</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Sustainable Innovation</h3>
+                    <p>Develop technologies that contribute to environmental and social sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

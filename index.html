@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YogaAI - Preview</title>
+    <style>
+        :root {
+            --primary-color: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --bg-light: #F3F4F6;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, #F5F3FF, var(--white));
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0.5rem;
+        }
+
+        .primary-button {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">YogaAI</div>
+            <div style="color: var(--primary-color);">
+                <a href="{{ url_for('About') }}" class="button primary-button">About Us</a>
+            </div>    
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Perfect Your Yoga Practice with AI-Powered Guidance</h1>
+        <p>Get real-time pose detection and corrections, just like having a personal yoga instructor at home.</p>
+        <div>
+            <a href="{{ url_for('try_now') }}" class="button primary-button">Try Now for Free</a>
+            <a href="{{ url_for('Watch') }}" class="button" style="border: 2px solid var(--primary-color); color: var(--primary-color);">Watch Demo</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>How It Works</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Real-time Detection</h3>
+                <p>Our AI technology accurately detects your yoga poses through your device's camera.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div>
+                <h3>Build Yourself with AI</h3>
+                <p>Empower yourself by leveraging AI to unlock your full potential and shape a smarter future.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"></div> 
+                <h3>Track Progress</h3>
+                <p>Monitor yourself for T-Pose , Warrior II pose, Tree pose.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

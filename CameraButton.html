@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Training Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            padding: 20px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-yoga {
+            background: #7C65C1;
+            color: white;
+        }
+
+        .btn-counter {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loader {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #3498db;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .info {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Yoga Training Assistant</h1>
+            <p>Choose one by one from the given below</p>
+            <p class="info">Press 'ESC' to stop the camera when you're done</p>
+        </div>
+
+        <div class="buttons-container">
+            <button class="btn btn-yoga" id="yogaButton">
+                Start Yoga Detection
+            </button>
+            <p class="info">Press 'Q' to stop the camera when you're done</p>
+            <button class="btn btn-counter" id="counterButton">
+                Start Set Counter
+            </button>
+        </div>
+
+        <div class="loader" id="loader"></div>
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        const yogaButton = document.getElementById('yogaButton');
+        const counterButton = document.getElementById('counterButton');
+        const loader = document.getElementById('loader');
+        const status = document.getElementById('status');
+
+        function showLoader() {
+            loader.style.display = 'block';
+            status.style.display = 'none';
+            yogaButton.disabled = true;
+            counterButton.disabled = true;
+        }
+
+        function hideLoader() {
+            loader.style.display = 'none';
+            yogaButton.disabled = false;
+            counterButton.disabled = false;
+        }
+
+        function showStatus(message, isError = false) {
+            status.textContent = message;
+            status.style.display = 'block';
+            status.className = `status ${isError ? 'error' : 'success'}`;
+        }
+
+        function executeProgram(program) {
+            showLoader();
+            fetch(`/execute/${program}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoader();
+                if (data.status === 'success') {
+                    showStatus(`${program === 'yoga' ? 'Yoga Detection' : 'Set Counter'} started successfully!`);
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .catch(error => {
+                hideLoader();
+                showStatus(`Failed to start ${program}: ${error.message}`, true);
+            });
+        }
+
+        yogaButton.addEventListener('click', () => executeProgram('yoga'));
+        counterButton.addEventListener('click', () => executeProgram('counter'));
+    </script>
+</body>
+</html>
